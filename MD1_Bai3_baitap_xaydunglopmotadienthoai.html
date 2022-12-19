@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    // class Mobile{
+    //      nokia;
+    //      iphone;
+    //
+    //     constructor(nokia, iphone) {
+    //         this.nokia = nokia;
+    //         this.iphone = iphone;
+    //     }
+    //
+    //     getNokia() {
+    //         return this.nokia;
+    //     }
+    //
+    //     getIphone() {
+    //         return this.iphone;
+    //     }
+    //
+    //     setNokia(nokia) {
+    //         this.nokia = nokia;
+    //     }
+    //
+    //     setIphone(iphone) {
+    //         this.iphone = iphone;
+    //     }
+    // }
+    let Mobile = function (pinStatus, textingMes, inboxMes, sentMes, phoneStatus) {
+        this.pinStatus = pinStatus;
+        this.textingMes = textingMes;
+        this.inboxMes = inboxMes;
+        this.sentMes = sentMes;
+        this.phoneStatus = phoneStatus;
+
+        this.getpinStatus = function () {
+            return this.pinStatus;
+        };
+        this.gettextingMes = function () {
+            return this.textingMes;
+        };
+        this.getinboxMes = function () {
+            return this.sentMes;
+        };
+        this.getphoneStatus = function () {
+            return this.phoneStatus;
+        };
+        this.onAndoff = function () {
+            if (this.phoneStatus == "on") {
+                this.phoneStatus == "off"
+            } else {
+                this.phoneStatus == "on"
+            }
+        };
+        this.chargephone = function () {
+            if (this.pinStatus < 20) {
+                return phoneStatus == " pin yếu"
+                if (this.pinStatus = 0) {
+                    return phoneStatus == "off";
+                }
+            }
+        };
+        this.textingmes = function () {
+            this.textingMes;
+        };
+        this.receiveMes = function () {
+            this.inboxMes;
+        };
+        this.sendMes = function () {
+            this.sentMes;
+        };
+        this.viewSentMes = function () {
+            this.sentMes;
+        }
+
+    }
+
+</script>
+</body>
+</html>

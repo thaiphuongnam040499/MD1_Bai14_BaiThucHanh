@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    class Circle{
+        radius;
+        color;
+        constructor(radius, color) {
+            this.radius = radius;
+            this.color = color;
+        }
+        getRadius() {
+            return this.radius;
+        }
+        getColor() {
+            return this.color;
+        }
+
+        getArea(){
+            return this.radius*this.radius*Math.PI
+        }
+
+        setRadius(radius) {
+            this.radius = radius;
+        }
+
+        setColor(color) {
+            this.color = color;
+        }
+    }
+    let c = new Circle(30)
+    console.log(c)
+  // let Circle = function(radius) {
+  //   this.radius = radius;
+  // };
+  // this.getRadius = function() {
+  //   return radius;
+  // }
+  // this.getArea = function() {
+  //   return Math.PI * radius * radius;
+  // }
+  // let circle = new Circle(2);
+  // let radius = circle.getRadius(); // 2
+  //
+  // let area = circle.getArea(); // 12.566370614359172
+  // alert("radius: " + radius + "; area: " + area);
+</script>
+</body>
+</html>

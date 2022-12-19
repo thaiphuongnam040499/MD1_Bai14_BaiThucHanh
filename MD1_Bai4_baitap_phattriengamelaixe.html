@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<img id="myImage" src="img/Up.PNG" height="100px" width="100px" style="position: relative; top: 0px; left: 0px;">
+<img id="boom" src="img/boom.png" height="100px" width="100px" style="position: relative; top: 200px; left: 200px;">
+<script>
+    let tank = document.getElementById('myImage');
+    let boom = document.getElementById('boom');
+    function init() {
+        tank.style.position = 'relative';
+        tank.style.top = '0px'
+        tank.style.left = '0px';
+        boom.style.position = 'relative';
+        boom.style.top = '200px';
+        boom.style.left = '200px'
+    }
+    init();
+    function moveRight(){
+        tank.src = 'img/Right.PNG'
+        tank.style.left = parseInt(tank.style.left) + 20 +'px'
+    }
+    function moveLeft(){
+        tank.src = 'img/Left.PNG'
+        tank.style.left = parseInt(tank.style.left) - 20 +'px'
+    }
+    function moveUP(){
+        tank.src = 'img/Up.PNG'
+        tank.style.top= parseInt(tank.style.top) -20 + 'px'
+    }
+    function moveDown(){
+        tank.src = 'img/Down.PNG'
+        tank.style.top= parseInt(tank.style.top) +20 + 'px'
+    }
+    //     bàn phím
+    function selectionKeyBoard(event){
+        switch (event.keyCode) {
+            case 38:
+                moveUP()
+                break;
+            case 37:
+                moveLeft()
+                break;
+            case 39:
+                moveRight()
+                break;
+            case 40:
+                moveDown()
+                break;
+        }checkCollision()
+    }
+    addEventListener('keydown',selectionKeyBoard )
+    function checkCollision() {
+        console.log('left tank --> ', tank.style.left)
+        console.log('top tank --> ', tank.style.top)
+        console.log('boom left ', boom.style.left)
+        console.log('boom top', parseInt(boom.style.top) -100+'px')
+        let topBoom = parseInt(boom.style.top) -100 + 'px';
+        if(parseInt(tank.style.top) >= parseInt(topBoom) && parseInt(tank.style.left) >=parseInt(boom.style.left)){
+            tank.src = 'img/explosion.png';
+            boom.src = 'img/explosion.png';
+            let audio = new Audio('audio/boom.mp3');
+            audio.play();
+        }
+    }
+</script>
+</body>
+</html>

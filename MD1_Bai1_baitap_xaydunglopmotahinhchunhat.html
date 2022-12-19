@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="500" style="border: 1px solid #ab3e3e"></canvas>
+<script>
+  class Rectangle{
+    width;
+    heigth;
+    constructor(width, heigth) {
+      this.width = width;
+      this.heigth = heigth;
+    }
+    getWidth(){
+      return  this.width
+    }
+    getHeigth(){
+      return this.heigth
+    }
+    setWidth(width){
+      this.width = width
+    }
+    setHeigth(heigth){
+      this.heigth = heigth
+    }
+    getPerimeter(){
+      return (this.heigth+this.width)*2
+    }
+    getArea(){
+      return this.heigth*this.width
+    }
+    drawRectangular(ctx){
+        ctx.beginPath()
+        ctx.rect(100,200, this.width , this.heigth)
+        ctx.fillStyle = "#a45656"
+        ctx.stroke()
+        ctx.closePath()
+        ctx.font = "30px Areal"
+        ctx.fillText('chu vi là ' + this.getPerimeter() ,50,50)
+        ctx.fillText('diện tích là ' + this.getArea() ,50,100)
+    }
+  }
+  let width= +prompt('nhập chiều rộng ')
+  let heigth= +prompt('nhập chiều dài ')
+  let canvas= document.getElementById('myCanvas')
+  ctx= canvas.getContext('2d')
+  let Rectangular = new Rectangle(width,heigth)
+  Rectangular.drawRectangular(ctx)
+</script>
+</body>
+</html>

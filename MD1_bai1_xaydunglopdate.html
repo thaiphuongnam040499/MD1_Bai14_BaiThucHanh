@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    class myDate{
+        day;
+        month;
+        year;
+        constructor(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+        getDay(){
+            return this.day;
+        }
+
+        getMonth(){
+            return this.month;
+        }
+
+        getYear(){
+            return this.year;
+        }
+
+        setDay(day) {
+            this.day = day;
+        }
+
+        setMonth(month) {
+            this.month = month;
+        }
+
+        setYear(year) {
+            this.year = year;
+        }
+        toString(){
+            return this.day +'/'+ this.month +'/'+this.year
+        }
+    }
+    let date1 = new myDate(19,12,2022)
+    console.log(date1)
+</script>
+</body>
+</html>

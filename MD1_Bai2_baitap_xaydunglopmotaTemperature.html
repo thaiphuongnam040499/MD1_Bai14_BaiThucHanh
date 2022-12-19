@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+  class Temperature{
+    C;
+    F;
+    Kenvin;
+
+    constructor(C, F, Kenvin) {
+      this.C = C;
+      this.F = F;
+      this.Kenvin = Kenvin;
+    }
+
+    getC() {
+      return this.C;
+    }
+
+    getF() {
+      return this.F;
+    }
+
+    getKenvin() {
+      return this.Kenvin;
+    }
+    getDoF(){
+        return 9*this.C/5 +32
+    }
+
+    getDoK(){
+        return this.C+273.15
+    }
+
+    setC(C) {
+      this.C = C;
+    }
+
+    setF(F) {
+      this.F = F;
+    }
+
+    setKenvin(Kenvin) {
+      this.Kenvin = Kenvin;
+    }
+  }
+  let temperature = new Temperature(25)
+  let doF = temperature.getDoF()
+  let doK = temperature.getDoK()
+  document.write("độ F là " + doF )
+  document.write("độ K là " + doK )
+</script>
+</body>
+</html>
