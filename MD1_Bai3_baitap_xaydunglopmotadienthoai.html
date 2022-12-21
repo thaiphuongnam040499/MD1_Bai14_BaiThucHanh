@@ -6,78 +6,115 @@
 </head>
 <body>
 <script>
-    // class Mobile{
-    //      nokia;
-    //      iphone;
-    //
-    //     constructor(nokia, iphone) {
-    //         this.nokia = nokia;
-    //         this.iphone = iphone;
-    //     }
-    //
-    //     getNokia() {
-    //         return this.nokia;
-    //     }
-    //
-    //     getIphone() {
-    //         return this.iphone;
-    //     }
-    //
-    //     setNokia(nokia) {
-    //         this.nokia = nokia;
-    //     }
-    //
-    //     setIphone(iphone) {
-    //         this.iphone = iphone;
-    //     }
-    // }
-    let Mobile = function (pinStatus, textingMes, inboxMes, sentMes, phoneStatus) {
-        this.pinStatus = pinStatus;
-        this.textingMes = textingMes;
-        this.inboxMes = inboxMes;
-        this.sentMes = sentMes;
-        this.phoneStatus = phoneStatus;
-
-        this.getpinStatus = function () {
-            return this.pinStatus;
-        };
-        this.gettextingMes = function () {
-            return this.textingMes;
-        };
-        this.getinboxMes = function () {
-            return this.sentMes;
-        };
-        this.getphoneStatus = function () {
-            return this.phoneStatus;
-        };
-        this.onAndoff = function () {
-            if (this.phoneStatus == "on") {
-                this.phoneStatus == "off"
-            } else {
-                this.phoneStatus == "on"
-            }
-        };
-        this.chargephone = function () {
-            if (this.pinStatus < 20) {
-                return phoneStatus == " pin yếu"
-                if (this.pinStatus = 0) {
-                    return phoneStatus == "off";
-                }
-            }
-        };
-        this.textingmes = function () {
-            this.textingMes;
-        };
-        this.receiveMes = function () {
-            this.inboxMes;
-        };
-        this.sendMes = function () {
-            this.sentMes;
-        };
-        this.viewSentMes = function () {
-            this.sentMes;
+    class Mobile{
+        battery = 100;
+        inbox = [];
+        messager = "";
+        outbox = [];
+        status = false;
+        constructor(battery, inbox, messager, outbox) {
+            this.battery = battery;
+            this.inbox = inbox;
+            this.messager = messager;
+            this.outbox = outbox;
         }
 
+        getBattery() {
+            return this.battery;
+        }
+
+        getInbox() {
+            return this.inbox;
+        }
+
+        getMessager() {
+            return this.messager;
+        }
+
+        getOutbox() {
+            return this.outbox;
+        }
+
+        setBattery(battery) {
+            this.battery = battery;
+        }
+
+        setInbox(inbox) {
+            this.inbox = inbox;
+        }
+
+        setMessager(messager) {
+            this.messager = messager;
+        }
+
+        setOutbox(outbox) {
+            this.outbox = outbox;
+        }
+        isStatus(){
+            return this.status
+        }
+        tunOn(){
+            this.status = true
+        }
+        tunOff(){
+            this.status = false
+        }
+        toggleMobile(){
+            this.status = !this.status
+        }
+        charginfPhone(){
+           let id= setInterval(function (){
+                if (this.battery<100){
+                    this.battery +=1
+                }else {
+                    console.log('pin đầy')
+                    clearInterval(id)
+                }
+            },1000)
+        }
+        composeBox(){
+            this.messager = prompt('nhap vao tin nhan')
+            this.decreaseBat()
+        }
+        sendMes(phone){
+            phone.inbox.push(this.messager) // lưu tin nhắn đang soạn thảo vào input của phone
+            this.outbox.push(this.messager) // thêm tin nhắn đã gửi vào hòm thư đi
+            this.decreaseBat()
+        }
+        showInbox(){
+            console.log('hộp thư đến')
+            for (let i = 0; i < this.inbox.length; i++) {
+                console.log(this.inbox[i])
+            }
+            this.decreaseBat()
+
+        }
+        showOutbox(){
+            console.log('hộp thư đi')
+            for (let i = 0; i < this.outbox.length; i++) {
+                console.log(this.outbox[i])
+            }
+            this.decreaseBat()
+
+        }
+        decreaseBat(){
+            this.battery--
+        }
+    }
+    let nokia = new Mobile(80)
+    let iphone = new Mobile(69)
+    nokia.tunOn()
+    iphone.tunOn()
+    if (nokia.isStatus&& iphone.isStatus()){
+        nokia.composeBox();
+        nokia.sendMes(iphone)
+        iphone.showInbox()
+    }else {
+        if (nokia.isStatus){
+            console.log('iphone đang tắt')
+        }else {
+            console.log('nokia đang tắt')
+        }
     }
 
 </script>
